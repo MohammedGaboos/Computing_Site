@@ -16,9 +16,6 @@
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             color: #333;
             line-height: 1.6;
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
         }
 
         /* Header */
@@ -26,6 +23,9 @@
             background: rgba(255, 255, 255, 0.95);
             border-bottom: 2px solid #667eea;
             box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 50;
         }
 
         .header-container {
@@ -60,6 +60,7 @@
             color: #333;
             font-weight: 500;
             transition: color 0.3s;
+            cursor: pointer;
         }
 
         nav a:hover {
@@ -71,10 +72,11 @@
             max-width: 1200px;
             margin: 0 auto;
             padding: 0 2rem;
-            flex: 1;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
+        }
+
+        /* Section */
+        section {
+            padding: 3rem 0;
         }
 
         /* Hero Section */
@@ -239,37 +241,184 @@
             line-height: 1.6;
         }
 
-        /* CTA Section */
-        .cta-section {
-            text-align: center;
-            padding: 3rem 0;
-            color: white;
-        }
-
-        .cta-section h2 {
-            font-size: 2rem;
-            margin-bottom: 2rem;
-            text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
-        }
-
-        .btn {
-            display: inline-block;
-            padding: 1rem 2.5rem;
+        /* Lesson Section */
+        .lesson-section {
             background: white;
-            color: #667eea;
-            text-decoration: none;
-            border-radius: 50px;
-            font-weight: 700;
-            font-size: 1.1rem;
-            transition: all 0.3s;
-            border: none;
-            cursor: pointer;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            border-radius: 12px;
+            padding: 3rem;
+            margin: 3rem 0;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
         }
 
-        .btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+        .lesson-section h2 {
+            font-size: 2.5rem;
+            color: #667eea;
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+
+        .lesson-subtitle {
+            text-align: center;
+            color: #666;
+            margin-bottom: 2rem;
+            font-size: 1.1rem;
+        }
+
+        .lesson-intro {
+            background: #f9f9f9;
+            padding: 2rem;
+            border-radius: 8px;
+            margin-bottom: 2rem;
+            border-right: 4px solid #667eea;
+        }
+
+        .lesson-intro h3 {
+            font-size: 1.5rem;
+            color: #333;
+            margin-bottom: 1rem;
+        }
+
+        .lesson-intro p {
+            color: #666;
+            line-height: 1.8;
+            margin-bottom: 1rem;
+        }
+
+        /* Commands Grid */
+        .commands-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .command-item {
+            background: #f9f9f9;
+            border-right: 4px solid #667eea;
+            padding: 1.5rem;
+            border-radius: 4px;
+            transition: box-shadow 0.3s;
+        }
+
+        .command-item:hover {
+            box-shadow: 0 4px 12px rgba(102, 126, 234, 0.2);
+        }
+
+        .command-item h4 {
+            font-size: 1.1rem;
+            color: #333;
+            margin-bottom: 0.5rem;
+        }
+
+        .command-item .description {
+            color: #999;
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+        }
+
+        /* Code Block */
+        .code-block {
+            background: #2d2d2d;
+            color: #f8f8f2;
+            border-radius: 4px;
+            padding: 1.5rem;
+            margin: 1rem 0;
+            font-family: 'Courier New', monospace;
+            font-size: 0.95rem;
+            overflow-x: auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .code-block code {
+            flex: 1;
+        }
+
+        .copy-btn {
+            padding: 0.5rem 1rem;
+            background: #667eea;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            transition: all 0.3s;
+            white-space: nowrap;
+            flex-shrink: 0;
+        }
+
+        .copy-btn:hover {
+            background: #764ba2;
+        }
+
+        /* Workflow Section */
+        .workflow {
+            background: #f9f9f9;
+            border-radius: 8px;
+            padding: 2rem;
+            margin: 2rem 0;
+            border-right: 4px solid #667eea;
+        }
+
+        .workflow h3 {
+            font-size: 1.5rem;
+            color: #333;
+            margin-bottom: 2rem;
+        }
+
+        .workflow-steps {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .step {
+            display: flex;
+            gap: 1.5rem;
+        }
+
+        .step-number {
+            width: 40px;
+            height: 40px;
+            background: #667eea;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            flex-shrink: 0;
+        }
+
+        .step-content h4 {
+            font-size: 1.1rem;
+            color: #333;
+            margin-bottom: 0.5rem;
+        }
+
+        .step-content p {
+            color: #666;
+        }
+
+        /* Tips Box */
+        .tips-box {
+            background: #e3f2fd;
+            border-left: 4px solid #667eea;
+            padding: 1.5rem;
+            border-radius: 4px;
+            margin: 2rem 0;
+        }
+
+        .tips-box h4 {
+            color: #667eea;
+            margin-bottom: 1rem;
+        }
+
+        .tips-box p {
+            color: #667eea;
+            margin-bottom: 0.5rem;
         }
 
         /* Footer */
@@ -278,7 +427,7 @@
             color: white;
             padding: 2rem;
             text-align: center;
-            margin-top: auto;
+            margin-top: 3rem;
             border-top: 1px solid rgba(255,255,255,0.2);
         }
 
@@ -317,15 +466,15 @@
 
             .about-section,
             .topics-section,
-            .importance-section {
+            .importance-section,
+            .lesson-section {
                 padding: 2rem;
                 margin: 2rem 0;
             }
 
-            .about-section h2,
-            .topics-section h2,
-            .importance-section h2 {
-                font-size: 1.8rem;
+            .code-block {
+                flex-direction: column;
+                align-items: flex-start;
             }
 
             .container {
@@ -463,11 +612,164 @@
             </div>
         </section>
 
-        <!-- CTA Section -->
-        <section class="cta-section">
+        <!-- Lesson 1 Section -->
+        <section class="lesson-section">
             <div class="container">
-                <h2>ابدأ رحلتك التعليمية اليوم</h2>
-                <p style="margin-bottom: 2rem; font-size: 1.1rem;">تعلم أساسيات الحوسبة والبرمجة من خلال دروس تفاعلية وسهلة الفهم</p>
+                <h2>الدرس الأول: أوامر Git الأساسية</h2>
+                <p class="lesson-subtitle">في هذا الدرس ستتعلم الأوامر الأساسية والضرورية لاستخدام نظام التحكم بالإصدارات Git بكفاءة.</p>
+
+                <!-- Introduction -->
+                <div class="lesson-intro">
+                    <h3>مقدمة عن Git</h3>
+                    <p>Git هو نظام تحكم بالإصدارات موزع يسمح لك بتتبع التغييرات في الملفات والمشاريع. يُستخدم على نطاق واسع في تطوير البرمجيات ويسهل التعاون بين المطورين.</p>
+                    <p>من خلال Git، يمكنك حفظ نسخ من مشروعك في نقاط زمنية مختلفة، والعودة إلى أي نسخة سابقة إذا لزم الأمر، والعمل على فروع مختلفة بشكل متوازي.</p>
+                </div>
+
+                <!-- Basic Commands -->
+                <h3 style="font-size: 1.5rem; color: #333; margin: 2rem 0 1rem 0;">الأوامر الأساسية</h3>
+                
+                <div class="commands-grid">
+                    <div class="command-item">
+                        <h4>1. تهيئة مستودع جديد</h4>
+                        <p class="description">ينشئ مستودع Git جديد في المجلد الحالي</p>
+                        <div class="code-block">
+                            <code>git init</code>
+                            <button class="copy-btn" onclick="copyToClipboard('git init')">نسخ</button>
+                        </div>
+                    </div>
+
+                    <div class="command-item">
+                        <h4>2. استنساخ مستودع موجود</h4>
+                        <p class="description">ينسخ مستودع موجود على GitHub إلى جهازك</p>
+                        <div class="code-block">
+                            <code>git clone https://github.com/username/repo.git</code>
+                            <button class="copy-btn" onclick="copyToClipboard('git clone https://github.com/username/repo.git')">نسخ</button>
+                        </div>
+                    </div>
+
+                    <div class="command-item">
+                        <h4>3. التحقق من حالة المستودع</h4>
+                        <p class="description">يعرض حالة الملفات المعدلة والملفات المرحلة للتزام</p>
+                        <div class="code-block">
+                            <code>git status</code>
+                            <button class="copy-btn" onclick="copyToClipboard('git status')">نسخ</button>
+                        </div>
+                    </div>
+
+                    <div class="command-item">
+                        <h4>4. إضافة ملفات للمرحلة</h4>
+                        <p class="description">يضيف ملف معين للمرحلة (Staging Area)</p>
+                        <div class="code-block">
+                            <code>git add filename.txt</code>
+                            <button class="copy-btn" onclick="copyToClipboard('git add filename.txt')">نسخ</button>
+                        </div>
+                    </div>
+
+                    <div class="command-item">
+                        <h4>5. إضافة جميع الملفات المعدلة</h4>
+                        <p class="description">يضيف جميع الملفات المعدلة للمرحلة</p>
+                        <div class="code-block">
+                            <code>git add .</code>
+                            <button class="copy-btn" onclick="copyToClipboard('git add .')">نسخ</button>
+                        </div>
+                    </div>
+
+                    <div class="command-item">
+                        <h4>6. حفظ التغييرات (Commit)</h4>
+                        <p class="description">يحفظ التغييرات مع رسالة توضح ما تم تعديله</p>
+                        <div class="code-block">
+                            <code>git commit -m "وصف التغييرات"</code>
+                            <button class="copy-btn" onclick="copyToClipboard('git commit -m \"وصف التغييرات\"')">نسخ</button>
+                        </div>
+                    </div>
+
+                    <div class="command-item">
+                        <h4>7. رفع التغييرات إلى GitHub</h4>
+                        <p class="description">يرفع التغييرات المحفوظة إلى الفرع الرئيسي على GitHub</p>
+                        <div class="code-block">
+                            <code>git push origin main</code>
+                            <button class="copy-btn" onclick="copyToClipboard('git push origin main')">نسخ</button>
+                        </div>
+                    </div>
+
+                    <div class="command-item">
+                        <h4>8. سحب آخر التحديثات</h4>
+                        <p class="description">يسحب آخر التحديثات من GitHub إلى جهازك</p>
+                        <div class="code-block">
+                            <code>git pull origin main</code>
+                            <button class="copy-btn" onclick="copyToClipboard('git pull origin main')">نسخ</button>
+                        </div>
+                    </div>
+
+                    <div class="command-item">
+                        <h4>9. عرض سجل التزامات</h4>
+                        <p class="description">يعرض قائمة بجميع التزامات السابقة</p>
+                        <div class="code-block">
+                            <code>git log</code>
+                            <button class="copy-btn" onclick="copyToClipboard('git log')">نسخ</button>
+                        </div>
+                    </div>
+
+                    <div class="command-item">
+                        <h4>10. إنشاء فرع جديد</h4>
+                        <p class="description">ينشئ فرع جديد لتطوير ميزة معينة</p>
+                        <div class="code-block">
+                            <code>git branch feature-name</code>
+                            <button class="copy-btn" onclick="copyToClipboard('git branch feature-name')">نسخ</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Workflow Section -->
+                <div class="workflow">
+                    <h3>سير العمل الأساسي</h3>
+                    <div class="workflow-steps">
+                        <div class="step">
+                            <div class="step-number">1</div>
+                            <div class="step-content">
+                                <h4>تهيئة المستودع</h4>
+                                <p>استخدم <code style="background: #f0f0f0; padding: 2px 6px; border-radius: 3px;">git init</code> لإنشاء مستودع جديد أو <code style="background: #f0f0f0; padding: 2px 6px; border-radius: 3px;">git clone</code> لنسخ مستودع موجود</p>
+                            </div>
+                        </div>
+                        <div class="step">
+                            <div class="step-number">2</div>
+                            <div class="step-content">
+                                <h4>تعديل الملفات</h4>
+                                <p>قم بإجراء التغييرات التي تريدها على ملفات المشروع</p>
+                            </div>
+                        </div>
+                        <div class="step">
+                            <div class="step-number">3</div>
+                            <div class="step-content">
+                                <h4>إضافة التغييرات</h4>
+                                <p>استخدم <code style="background: #f0f0f0; padding: 2px 6px; border-radius: 3px;">git add</code> لإضافة الملفات المعدلة للمرحلة</p>
+                            </div>
+                        </div>
+                        <div class="step">
+                            <div class="step-number">4</div>
+                            <div class="step-content">
+                                <h4>حفظ التغييرات</h4>
+                                <p>استخدم <code style="background: #f0f0f0; padding: 2px 6px; border-radius: 3px;">git commit</code> لحفظ التغييرات مع رسالة توضيحية</p>
+                            </div>
+                        </div>
+                        <div class="step">
+                            <div class="step-number">5</div>
+                            <div class="step-content">
+                                <h4>رفع التغييرات</h4>
+                                <p>استخدم <code style="background: #f0f0f0; padding: 2px 6px; border-radius: 3px;">git push</code> لرفع التغييرات إلى GitHub</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tips Box -->
+                <div class="tips-box">
+                    <h4>✓ نصائح مهمة</h4>
+                    <p>✓ استخدم رسائل التزام واضحة وموجزة تصف التغييرات بدقة</p>
+                    <p>✓ قم بالتزام التغييرات بشكل متكرر بدلاً من حفظ كل شيء دفعة واحدة</p>
+                    <p>✓ تحقق دائماً من حالة المستودع قبل التزام التغييرات باستخدام <code style="background: rgba(0,0,0,0.1); padding: 2px 6px; border-radius: 3px;">git status</code></p>
+                    <p>✓ اسحب آخر التحديثات من GitHub قبل البدء في العمل</p>
+                </div>
             </div>
         </section>
     </main>
@@ -476,5 +778,15 @@
     <footer>
         <p>&copy; 2025 موقع تعليمي عن الحوسبة. جميع الحقوق محفوظة.</p>
     </footer>
+
+    <script>
+        function copyToClipboard(text) {
+            navigator.clipboard.writeText(text).then(() => {
+                alert('تم نسخ الأمر بنجاح!');
+            }).catch(err => {
+                console.error('فشل النسخ:', err);
+            });
+        }
+    </script>
 </body>
 </html>
