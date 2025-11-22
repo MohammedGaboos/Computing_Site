@@ -421,6 +421,39 @@
             margin-bottom: 0.5rem;
         }
 
+        /* Tabs */
+        .tabs {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 2rem;
+            border-bottom: 2px solid #ddd;
+        }
+
+        .tab-btn {
+            padding: 1rem 1.5rem;
+            background: none;
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+            font-weight: 600;
+            color: #666;
+            border-bottom: 3px solid transparent;
+            transition: all 0.3s;
+        }
+
+        .tab-btn.active {
+            color: #667eea;
+            border-bottom-color: #667eea;
+        }
+
+        .tab-content {
+            display: none;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
         /* Footer */
         footer {
             background: rgba(0, 0, 0, 0.1);
@@ -479,6 +512,10 @@
 
             .container {
                 padding: 0 1rem;
+            }
+
+            .tabs {
+                flex-wrap: wrap;
             }
         }
     </style>
@@ -612,163 +649,312 @@
             </div>
         </section>
 
-        <!-- Lesson 1 Section -->
+        <!-- Lessons Section with Tabs -->
         <section class="lesson-section">
             <div class="container">
-                <h2>الدرس الأول: أوامر Git الأساسية</h2>
-                <p class="lesson-subtitle">في هذا الدرس ستتعلم الأوامر الأساسية والضرورية لاستخدام نظام التحكم بالإصدارات Git بكفاءة.</p>
-
-                <!-- Introduction -->
-                <div class="lesson-intro">
-                    <h3>مقدمة عن Git</h3>
-                    <p>Git هو نظام تحكم بالإصدارات موزع يسمح لك بتتبع التغييرات في الملفات والمشاريع. يُستخدم على نطاق واسع في تطوير البرمجيات ويسهل التعاون بين المطورين.</p>
-                    <p>من خلال Git، يمكنك حفظ نسخ من مشروعك في نقاط زمنية مختلفة، والعودة إلى أي نسخة سابقة إذا لزم الأمر، والعمل على فروع مختلفة بشكل متوازي.</p>
-                </div>
-
-                <!-- Basic Commands -->
-                <h3 style="font-size: 1.5rem; color: #333; margin: 2rem 0 1rem 0;">الأوامر الأساسية</h3>
+                <h2>الدروس التعليمية</h2>
                 
-                <div class="commands-grid">
-                    <div class="command-item">
-                        <h4>1. تهيئة مستودع جديد</h4>
-                        <p class="description">ينشئ مستودع Git جديد في المجلد الحالي</p>
-                        <div class="code-block">
-                            <code>git init</code>
-                            <button class="copy-btn" onclick="copyToClipboard('git init')">نسخ</button>
+                <!-- Tabs -->
+                <div class="tabs">
+                    <button class="tab-btn active" onclick="switchTab('lesson1')">الدرس الأول: أوامر Git</button>
+                    <button class="tab-btn" onclick="switchTab('lesson2')">الدرس الثاني: Collaboration</button>
+                </div>
+
+                <!-- LESSON 1 TAB -->
+                <div id="lesson1" class="tab-content active">
+                    <p class="lesson-subtitle">في هذا الدرس ستتعلم الأوامر الأساسية والضرورية لاستخدام نظام التحكم بالإصدارات Git بكفاءة.</p>
+
+                    <!-- Introduction -->
+                    <div class="lesson-intro">
+                        <h3>مقدمة عن Git</h3>
+                        <p>Git هو نظام تحكم بالإصدارات موزع يسمح لك بتتبع التغييرات في الملفات والمشاريع. يُستخدم على نطاق واسع في تطوير البرمجيات ويسهل التعاون بين المطورين.</p>
+                        <p>من خلال Git، يمكنك حفظ نسخ من مشروعك في نقاط زمنية مختلفة، والعودة إلى أي نسخة سابقة إذا لزم الأمر، والعمل على فروع مختلفة بشكل متوازي.</p>
+                    </div>
+
+                    <!-- Basic Commands -->
+                    <h3 style="font-size: 1.5rem; color: #333; margin: 2rem 0 1rem 0;">الأوامر الأساسية</h3>
+                    
+                    <div class="commands-grid">
+                        <div class="command-item">
+                            <h4>1. تهيئة مستودع جديد</h4>
+                            <p class="description">ينشئ مستودع Git جديد في المجلد الحالي</p>
+                            <div class="code-block">
+                                <code>git init</code>
+                                <button class="copy-btn" onclick="copyToClipboard('git init')">نسخ</button>
+                            </div>
+                        </div>
+
+                        <div class="command-item">
+                            <h4>2. استنساخ مستودع موجود</h4>
+                            <p class="description">ينسخ مستودع موجود على GitHub إلى جهازك</p>
+                            <div class="code-block">
+                                <code>git clone https://github.com/username/repo.git</code>
+                                <button class="copy-btn" onclick="copyToClipboard('git clone https://github.com/username/repo.git')">نسخ</button>
+                            </div>
+                        </div>
+
+                        <div class="command-item">
+                            <h4>3. التحقق من حالة المستودع</h4>
+                            <p class="description">يعرض حالة الملفات المعدلة والملفات المرحلة للتزام</p>
+                            <div class="code-block">
+                                <code>git status</code>
+                                <button class="copy-btn" onclick="copyToClipboard('git status')">نسخ</button>
+                            </div>
+                        </div>
+
+                        <div class="command-item">
+                            <h4>4. إضافة ملفات للمرحلة</h4>
+                            <p class="description">يضيف ملف معين للمرحلة (Staging Area)</p>
+                            <div class="code-block">
+                                <code>git add filename.txt</code>
+                                <button class="copy-btn" onclick="copyToClipboard('git add filename.txt')">نسخ</button>
+                            </div>
+                        </div>
+
+                        <div class="command-item">
+                            <h4>5. إضافة جميع الملفات المعدلة</h4>
+                            <p class="description">يضيف جميع الملفات المعدلة للمرحلة</p>
+                            <div class="code-block">
+                                <code>git add .</code>
+                                <button class="copy-btn" onclick="copyToClipboard('git add .')">نسخ</button>
+                            </div>
+                        </div>
+
+                        <div class="command-item">
+                            <h4>6. حفظ التغييرات (Commit)</h4>
+                            <p class="description">يحفظ التغييرات مع رسالة توضح ما تم تعديله</p>
+                            <div class="code-block">
+                                <code>git commit -m "وصف التغييرات"</code>
+                                <button class="copy-btn" onclick="copyToClipboard('git commit -m \"وصف التغييرات\"')">نسخ</button>
+                            </div>
+                        </div>
+
+                        <div class="command-item">
+                            <h4>7. رفع التغييرات إلى GitHub</h4>
+                            <p class="description">يرفع التغييرات المحفوظة إلى الفرع الرئيسي على GitHub</p>
+                            <div class="code-block">
+                                <code>git push origin main</code>
+                                <button class="copy-btn" onclick="copyToClipboard('git push origin main')">نسخ</button>
+                            </div>
+                        </div>
+
+                        <div class="command-item">
+                            <h4>8. سحب آخر التحديثات</h4>
+                            <p class="description">يسحب آخر التحديثات من GitHub إلى جهازك</p>
+                            <div class="code-block">
+                                <code>git pull origin main</code>
+                                <button class="copy-btn" onclick="copyToClipboard('git pull origin main')">نسخ</button>
+                            </div>
+                        </div>
+
+                        <div class="command-item">
+                            <h4>9. عرض سجل التزامات</h4>
+                            <p class="description">يعرض قائمة بجميع التزامات السابقة</p>
+                            <div class="code-block">
+                                <code>git log</code>
+                                <button class="copy-btn" onclick="copyToClipboard('git log')">نسخ</button>
+                            </div>
+                        </div>
+
+                        <div class="command-item">
+                            <h4>10. إنشاء فرع جديد</h4>
+                            <p class="description">ينشئ فرع جديد لتطوير ميزة معينة</p>
+                            <div class="code-block">
+                                <code>git branch feature-name</code>
+                                <button class="copy-btn" onclick="copyToClipboard('git branch feature-name')">نسخ</button>
+                            </div>
                         </div>
                     </div>
 
-                    <div class="command-item">
-                        <h4>2. استنساخ مستودع موجود</h4>
-                        <p class="description">ينسخ مستودع موجود على GitHub إلى جهازك</p>
-                        <div class="code-block">
-                            <code>git clone https://github.com/username/repo.git</code>
-                            <button class="copy-btn" onclick="copyToClipboard('git clone https://github.com/username/repo.git')">نسخ</button>
+                    <!-- Workflow Section -->
+                    <div class="workflow">
+                        <h3>سير العمل الأساسي</h3>
+                        <div class="workflow-steps">
+                            <div class="step">
+                                <div class="step-number">1</div>
+                                <div class="step-content">
+                                    <h4>تهيئة المستودع</h4>
+                                    <p>استخدم <code style="background: #f0f0f0; padding: 2px 6px; border-radius: 3px;">git init</code> لإنشاء مستودع جديد</p>
+                                </div>
+                            </div>
+                            <div class="step">
+                                <div class="step-number">2</div>
+                                <div class="step-content">
+                                    <h4>تعديل الملفات</h4>
+                                    <p>قم بإجراء التغييرات التي تريدها على ملفات المشروع</p>
+                                </div>
+                            </div>
+                            <div class="step">
+                                <div class="step-number">3</div>
+                                <div class="step-content">
+                                    <h4>إضافة التغييرات</h4>
+                                    <p>استخدم <code style="background: #f0f0f0; padding: 2px 6px; border-radius: 3px;">git add</code> لإضافة الملفات المعدلة</p>
+                                </div>
+                            </div>
+                            <div class="step">
+                                <div class="step-number">4</div>
+                                <div class="step-content">
+                                    <h4>حفظ التغييرات</h4>
+                                    <p>استخدم <code style="background: #f0f0f0; padding: 2px 6px; border-radius: 3px;">git commit</code> لحفظ التغييرات</p>
+                                </div>
+                            </div>
+                            <div class="step">
+                                <div class="step-number">5</div>
+                                <div class="step-content">
+                                    <h4>رفع التغييرات</h4>
+                                    <p>استخدم <code style="background: #f0f0f0; padding: 2px 6px; border-radius: 3px;">git push</code> لرفع التغييرات</p>
+                                </div>
+                            </div>
                         </div>
                     </div>
 
-                    <div class="command-item">
-                        <h4>3. التحقق من حالة المستودع</h4>
-                        <p class="description">يعرض حالة الملفات المعدلة والملفات المرحلة للتزام</p>
-                        <div class="code-block">
-                            <code>git status</code>
-                            <button class="copy-btn" onclick="copyToClipboard('git status')">نسخ</button>
-                        </div>
-                    </div>
-
-                    <div class="command-item">
-                        <h4>4. إضافة ملفات للمرحلة</h4>
-                        <p class="description">يضيف ملف معين للمرحلة (Staging Area)</p>
-                        <div class="code-block">
-                            <code>git add filename.txt</code>
-                            <button class="copy-btn" onclick="copyToClipboard('git add filename.txt')">نسخ</button>
-                        </div>
-                    </div>
-
-                    <div class="command-item">
-                        <h4>5. إضافة جميع الملفات المعدلة</h4>
-                        <p class="description">يضيف جميع الملفات المعدلة للمرحلة</p>
-                        <div class="code-block">
-                            <code>git add .</code>
-                            <button class="copy-btn" onclick="copyToClipboard('git add .')">نسخ</button>
-                        </div>
-                    </div>
-
-                    <div class="command-item">
-                        <h4>6. حفظ التغييرات (Commit)</h4>
-                        <p class="description">يحفظ التغييرات مع رسالة توضح ما تم تعديله</p>
-                        <div class="code-block">
-                            <code>git commit -m "وصف التغييرات"</code>
-                            <button class="copy-btn" onclick="copyToClipboard('git commit -m \"وصف التغييرات\"')">نسخ</button>
-                        </div>
-                    </div>
-
-                    <div class="command-item">
-                        <h4>7. رفع التغييرات إلى GitHub</h4>
-                        <p class="description">يرفع التغييرات المحفوظة إلى الفرع الرئيسي على GitHub</p>
-                        <div class="code-block">
-                            <code>git push origin main</code>
-                            <button class="copy-btn" onclick="copyToClipboard('git push origin main')">نسخ</button>
-                        </div>
-                    </div>
-
-                    <div class="command-item">
-                        <h4>8. سحب آخر التحديثات</h4>
-                        <p class="description">يسحب آخر التحديثات من GitHub إلى جهازك</p>
-                        <div class="code-block">
-                            <code>git pull origin main</code>
-                            <button class="copy-btn" onclick="copyToClipboard('git pull origin main')">نسخ</button>
-                        </div>
-                    </div>
-
-                    <div class="command-item">
-                        <h4>9. عرض سجل التزامات</h4>
-                        <p class="description">يعرض قائمة بجميع التزامات السابقة</p>
-                        <div class="code-block">
-                            <code>git log</code>
-                            <button class="copy-btn" onclick="copyToClipboard('git log')">نسخ</button>
-                        </div>
-                    </div>
-
-                    <div class="command-item">
-                        <h4>10. إنشاء فرع جديد</h4>
-                        <p class="description">ينشئ فرع جديد لتطوير ميزة معينة</p>
-                        <div class="code-block">
-                            <code>git branch feature-name</code>
-                            <button class="copy-btn" onclick="copyToClipboard('git branch feature-name')">نسخ</button>
-                        </div>
+                    <!-- Tips Box -->
+                    <div class="tips-box">
+                        <h4>✓ نصائح مهمة</h4>
+                        <p>✓ استخدم رسائل التزام واضحة وموجزة</p>
+                        <p>✓ قم بالتزام التغييرات بشكل متكرر</p>
+                        <p>✓ تحقق دائماً من حالة المستودع قبل التزام</p>
+                        <p>✓ اسحب آخر التحديثات قبل البدء في العمل</p>
                     </div>
                 </div>
 
-                <!-- Workflow Section -->
-                <div class="workflow">
-                    <h3>سير العمل الأساسي</h3>
-                    <div class="workflow-steps">
-                        <div class="step">
-                            <div class="step-number">1</div>
-                            <div class="step-content">
-                                <h4>تهيئة المستودع</h4>
-                                <p>استخدم <code style="background: #f0f0f0; padding: 2px 6px; border-radius: 3px;">git init</code> لإنشاء مستودع جديد أو <code style="background: #f0f0f0; padding: 2px 6px; border-radius: 3px;">git clone</code> لنسخ مستودع موجود</p>
+                <!-- LESSON 2 TAB -->
+                <div id="lesson2" class="tab-content">
+                    <p class="lesson-subtitle">تعلم كيفية التعاون مع فريق العمل باستخدام Git و GitHub بشكل فعال وآمن.</p>
+
+                    <!-- Introduction -->
+                    <div class="lesson-intro">
+                        <h3>مقدمة عن التعاون في Git</h3>
+                        <p>التعاون هو أحد أهم مميزات Git. يسمح لعدة مطورين بالعمل على نفس المشروع في نفس الوقت دون تضارب.</p>
+                        <p>من خلال استخدام الفروع (Branches) والطلبات (Pull Requests)، يمكن لكل مطور العمل على ميزة منفصلة، ثم دمج التغييرات بشكل منظم وآمن.</p>
+                    </div>
+
+                    <!-- Branches Section -->
+                    <div style="background: #f9f9f9; padding: 2rem; border-radius: 8px; margin: 2rem 0; border-right: 4px solid #667eea;">
+                        <h3 style="font-size: 1.3rem; color: #333; margin-bottom: 1rem;">فهم الفروع (Branches)</h3>
+                        <p style="color: #666; margin-bottom: 1rem;">الفرع هو نسخة مستقلة من المشروع. الفرع الرئيسي يُسمى عادة <code style="background: #f0f0f0; padding: 2px 6px; border-radius: 3px;">main</code> أو <code style="background: #f0f0f0; padding: 2px 6px; border-radius: 3px;">master</code>.</p>
+                        <p style="color: #666;">عند العمل على ميزة جديدة، تنشئ فرع جديد من الفرع الرئيسي. بعد الانتهاء من العمل والاختبار، تدمج الفرع الجديد مع الفرع الرئيسي.</p>
+                    </div>
+
+                    <!-- Commands Section -->
+                    <h3 style="font-size: 1.5rem; color: #333; margin: 2rem 0 1rem 0;">أوامر التعاون</h3>
+                    
+                    <div class="commands-grid">
+                        <div class="command-item">
+                            <h4>1. إنشاء فرع جديد</h4>
+                            <p class="description">ينشئ فرع جديد للعمل على ميزة معينة</p>
+                            <div class="code-block">
+                                <code>git branch feature-name</code>
+                                <button class="copy-btn" onclick="copyToClipboard('git branch feature-name')">نسخ</button>
                             </div>
                         </div>
-                        <div class="step">
-                            <div class="step-number">2</div>
-                            <div class="step-content">
-                                <h4>تعديل الملفات</h4>
-                                <p>قم بإجراء التغييرات التي تريدها على ملفات المشروع</p>
+
+                        <div class="command-item">
+                            <h4>2. الانتقال إلى فرع معين</h4>
+                            <p class="description">ينقلك إلى الفرع المحدد</p>
+                            <div class="code-block">
+                                <code>git checkout feature-name</code>
+                                <button class="copy-btn" onclick="copyToClipboard('git checkout feature-name')">نسخ</button>
                             </div>
                         </div>
-                        <div class="step">
-                            <div class="step-number">3</div>
-                            <div class="step-content">
-                                <h4>إضافة التغييرات</h4>
-                                <p>استخدم <code style="background: #f0f0f0; padding: 2px 6px; border-radius: 3px;">git add</code> لإضافة الملفات المعدلة للمرحلة</p>
+
+                        <div class="command-item">
+                            <h4>3. إنشاء والانتقال إلى فرع جديد</h4>
+                            <p class="description">ينشئ فرع جديد وينقلك إليه مباشرة</p>
+                            <div class="code-block">
+                                <code>git checkout -b feature-name</code>
+                                <button class="copy-btn" onclick="copyToClipboard('git checkout -b feature-name')">نسخ</button>
                             </div>
                         </div>
-                        <div class="step">
-                            <div class="step-number">4</div>
-                            <div class="step-content">
-                                <h4>حفظ التغييرات</h4>
-                                <p>استخدم <code style="background: #f0f0f0; padding: 2px 6px; border-radius: 3px;">git commit</code> لحفظ التغييرات مع رسالة توضيحية</p>
+
+                        <div class="command-item">
+                            <h4>4. عرض جميع الفروع المحلية</h4>
+                            <p class="description">يعرض قائمة بجميع الفروع المحلية</p>
+                            <div class="code-block">
+                                <code>git branch</code>
+                                <button class="copy-btn" onclick="copyToClipboard('git branch')">نسخ</button>
                             </div>
                         </div>
-                        <div class="step">
-                            <div class="step-number">5</div>
-                            <div class="step-content">
-                                <h4>رفع التغييرات</h4>
-                                <p>استخدم <code style="background: #f0f0f0; padding: 2px 6px; border-radius: 3px;">git push</code> لرفع التغييرات إلى GitHub</p>
+
+                        <div class="command-item">
+                            <h4>5. عرض جميع الفروع</h4>
+                            <p class="description">يعرض قائمة بجميع الفروع المحلية والبعيدة</p>
+                            <div class="code-block">
+                                <code>git branch -a</code>
+                                <button class="copy-btn" onclick="copyToClipboard('git branch -a')">نسخ</button>
+                            </div>
+                        </div>
+
+                        <div class="command-item">
+                            <h4>6. دمج فرع مع الفرع الحالي</h4>
+                            <p class="description">يدمج التغييرات من فرع معين</p>
+                            <div class="code-block">
+                                <code>git merge feature-name</code>
+                                <button class="copy-btn" onclick="copyToClipboard('git merge feature-name')">نسخ</button>
+                            </div>
+                        </div>
+
+                        <div class="command-item">
+                            <h4>7. رفع فرع جديد إلى GitHub</h4>
+                            <p class="description">يرفع الفرع الجديد إلى GitHub</p>
+                            <div class="code-block">
+                                <code>git push origin feature-name</code>
+                                <button class="copy-btn" onclick="copyToClipboard('git push origin feature-name')">نسخ</button>
+                            </div>
+                        </div>
+
+                        <div class="command-item">
+                            <h4>8. سحب آخر التحديثات من فرع بعيد</h4>
+                            <p class="description">يسحب معلومات الفروع البعيدة</p>
+                            <div class="code-block">
+                                <code>git fetch origin</code>
+                                <button class="copy-btn" onclick="copyToClipboard('git fetch origin')">نسخ</button>
+                            </div>
+                        </div>
+
+                        <div class="command-item">
+                            <h4>9. حل تضارب الدمج</h4>
+                            <p class="description">يعرض الملفات التي بها تضاربات</p>
+                            <div class="code-block">
+                                <code>git status</code>
+                                <button class="copy-btn" onclick="copyToClipboard('git status')">نسخ</button>
+                            </div>
+                        </div>
+
+                        <div class="command-item">
+                            <h4>10. حذف فرع محلي</h4>
+                            <p class="description">يحذف فرع محلي بعد دمجه</p>
+                            <div class="code-block">
+                                <code>git branch -d feature-name</code>
+                                <button class="copy-btn" onclick="copyToClipboard('git branch -d feature-name')">نسخ</button>
                             </div>
                         </div>
                     </div>
-                </div>
 
-                <!-- Tips Box -->
-                <div class="tips-box">
-                    <h4>✓ نصائح مهمة</h4>
-                    <p>✓ استخدم رسائل التزام واضحة وموجزة تصف التغييرات بدقة</p>
-                    <p>✓ قم بالتزام التغييرات بشكل متكرر بدلاً من حفظ كل شيء دفعة واحدة</p>
-                    <p>✓ تحقق دائماً من حالة المستودع قبل التزام التغييرات باستخدام <code style="background: rgba(0,0,0,0.1); padding: 2px 6px; border-radius: 3px;">git status</code></p>
-                    <p>✓ اسحب آخر التحديثات من GitHub قبل البدء في العمل</p>
+                    <!-- Pull Requests Section -->
+                    <div style="background: #f9f9f9; padding: 2rem; border-radius: 8px; margin: 2rem 0; border-right: 4px solid #667eea;">
+                        <h3 style="font-size: 1.3rem; color: #333; margin-bottom: 1rem;">طلبات السحب (Pull Requests)</h3>
+                        <p style="color: #666; margin-bottom: 1rem;">طلب السحب هو طريقة لطلب دمج التغييرات من فرع إلى فرع آخر.</p>
+                        <p style="color: #666;"><strong>خطوات إنشاء طلب سحب:</strong></p>
+                        <div style="margin-left: 1rem; margin-top: 1rem; color: #666;">
+                            <p>1. ادفع فرعك إلى GitHub</p>
+                            <p>2. اذهب إلى مستودعك على GitHub</p>
+                            <p>3. اضغط على "Create Pull Request"</p>
+                            <p>4. أضف وصف للتغييرات</p>
+                            <p>5. انتظر مراجعة الكود ثم دمج الطلب</p>
+                        </div>
+                    </div>
+
+                    <!-- Best Practices Section -->
+                    <div class="tips-box">
+                        <h4>✓ أفضل الممارسات</h4>
+                        <p>✓ استخدم أسماء واضحة للفروع</p>
+                        <p>✓ قم بسحب آخر التحديثات قبل البدء</p>
+                        <p>✓ قم بالتزام التغييرات بشكل متكرر</p>
+                        <p>✓ اطلب مراجعة الكود قبل الدمج</p>
+                        <p>✓ احذف الفروع بعد دمجها</p>
+                        <p>✓ تواصل مع فريقك حول التغييرات الكبيرة</p>
+                    </div>
                 </div>
             </div>
         </section>
@@ -786,6 +972,22 @@
             }).catch(err => {
                 console.error('فشل النسخ:', err);
             });
+        }
+
+        function switchTab(tabName) {
+            // Hide all tabs
+            const tabs = document.querySelectorAll('.tab-content');
+            tabs.forEach(tab => tab.classList.remove('active'));
+
+            // Remove active class from all buttons
+            const buttons = document.querySelectorAll('.tab-btn');
+            buttons.forEach(btn => btn.classList.remove('active'));
+
+            // Show selected tab
+            document.getElementById(tabName).classList.add('active');
+
+            // Add active class to clicked button
+            event.target.classList.add('active');
         }
     </script>
 </body>
